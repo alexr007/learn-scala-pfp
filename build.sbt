@@ -1,3 +1,5 @@
+import Dependencies._
+
 name                     := "learn-scala-pfp"
 version                  := "0.0.1"
 ThisBuild / scalaVersion := "2.13.1"
@@ -13,6 +15,7 @@ scalacOptions --= Seq(
 )
 
 libraryDependencies ++= Seq(
+
   compilerPlugin("org.typelevel"  %% "kind-projector"  % "0.11.0" cross CrossVersion.full ),
   compilerPlugin("org.augustjune" %% "context-applied" % "0.1.2"),
 
@@ -26,10 +29,13 @@ libraryDependencies ++= Seq(
   "com.olegpy"     %% "meow-mtl-effects"          % "0.4.0",
 
   // @newtype annotation
-  "io.estatico"    %% "newtype"                   % "0.4.3",
+  Libraries.newtype,
   // refined types
-  "eu.timepit"     %% "refined"                    % "0.9.12",
+  Libraries.refinedCore,
 
+  Libraries.http4sServer,
+  Libraries.http4sClient,
+  Libraries.http4sDsl,
   "com.github.julien-truffaut" %% "monocle-core"  % "2.0.1",
   "com.github.julien-truffaut" %% "monocle-macro" % "2.0.1",
 
